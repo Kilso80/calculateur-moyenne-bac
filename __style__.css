@@ -1,0 +1,246 @@
+
+/* Couleurs : 
+	- #61892F (Dark green)
+	- #86C232 (et hsl(85, 0%, 50%), un peu plus clair) (Light green)
+	- #222629 (Black)
+	- #474B4F (dark grey)
+	- #6B6E70 (Grey)
+*/
+
+body {
+	background-color: #222629;
+}
+
+* {
+	transition: .3s ease-in-out;
+}
+
+h1 {
+	color: #86C232;
+	position: sticky;
+	top: 0px;
+	background-color: #222629;
+	z-index: 10;
+}
+
+p, h2 {
+	color: #fff;
+}
+
+.container { 	/* Pour que les deux classBox aient la même hauteur*/
+	width: 95%;
+	padding: 1em;
+	display: flex;
+	justify-content: center;
+	align-items: stretch;
+}
+
+.Box {		/* Blocs première et terminale */
+	box-shadow: 10px 5px 5px black;
+	border-style: solid;
+	border-width: 1mm;
+	border-color: #474B4F;
+	display: inline-block;
+	border-radius: 5px;
+	padding: 10px;
+	min-width: 40%;
+	margin: 10px;
+	min-height: 100%;
+	z-index: 1;
+}
+
+label {		/* Noms des matières */
+	color: #6B6E70;
+}
+
+#resultBox {	/* Boite donnant la moyenne et le résultat */
+	background-color: hsl(85, 0%, 50%);
+	width: 75%;
+	position: sticky;
+	bottom: 2%;
+	border-radius: 10px;
+	z-index: 2;
+}
+
+
+/* ---------- STYLE DES INPUTS ---------- */
+
+.note{
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+	text-align: left;
+	width: 90%;
+	height: 3em;
+}
+
+.note * {
+	background-color: #222629;
+}
+
+.note input {
+	width: 100%;
+	align-self: baseline;
+	height: 2em;
+	border: 1px solid rgba(255, 255, 255, 0.25);
+	border-radius: 5px;
+	box-sizing: border-box;  /* Pour que la boite ne dépasse pas sur ses voisines */
+	outline: none;
+	color: #fff;
+}
+
+.note span {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	max-width: 95%;
+	position: relative;
+	bottom: 1.4em;
+	left: .2em;
+	text-transform: uppercase;
+	align-self: start;
+	pointer-events: none; /* Empêche la sélection */
+	color: rgba(255, 255, 255, 0.25);
+}
+
+.note .wrong {
+	border-color: #f00;
+}
+
+.wrong ~ span {
+	border-color: #f00;
+	color: #f00;
+	border-width: 0 1px;
+	border-style: solid;
+	padding: 0 2px;
+	font-size: .5em;
+	bottom: 3.8em;
+	left: 2em;
+}
+
+.right ~ span {
+	color: #61892F;
+	border-width: 0 1px;
+	border-style: solid;
+	border-color: #61892F;
+	padding: 0 2px;
+	font-size: .5em;
+	bottom: 3.8em;
+	left: 2em;
+}
+
+.note input.right {
+	border-color: #61892F;
+}
+
+.note input:focus ~ span {
+	color: #86C232;
+	border-width: 0 1px;
+	border-style: solid;
+	border-color: #86C232;
+	padding: 0 2px;
+	font-size: .5em;
+	bottom: 3.8em;
+	left: 2em;
+}
+
+.note input:focus {
+	border-color: #86C232;
+}
+
+/* ------------- Options ------------- */
+
+.hidden {
+	/*position: absolute;
+	left: -10000px;
+	top: -10000px;*/
+	height: 0;
+	visibility: collapse;
+	animation: hide .5s ease-in-out;
+}
+
+@keyframes hide {
+	from {
+		opacity: 100%;
+		height: 2.95em;
+	}
+	to {
+		visibility: collapse;
+		height: 0px;
+		opacity: 0%;
+	}
+}
+
+/* ----------------------------------- */
+/* -------------------------------------- */
+
+
+/* --------- Style des checkbox --------- */
+
+input[type="checkbox"] {	/* Disappear ! */
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+
+input[type="checkbox"] + label {
+	cursor: pointer;
+	position: relative;
+	display: flex;
+	align-items: center; /* Sinon texte et checkbox non alignés */
+	justify-content: center;
+	width: fit-content;
+	font-size:larger;
+	user-select: none;
+}
+
+input[type="checkbox"]:checked + label::after {
+	background-color: #86C232;
+	left: 1em;
+}
+
+input[type="checkbox"]:checked + label::before {
+	background-color: #79985160;
+}
+
+input[type="checkbox"] + label::before {
+	content: "";
+	width: 2em;
+	height: 1em;
+	background-color: #6B6E7060;
+	border-radius: 1em;
+	margin-right: .25em;
+	transition: 200ms;
+}
+
+input[type="checkbox"] + label::after { /* Bouton se déplaçant à l'interieur de la checkbox */
+	position: absolute;
+	left: .1em;
+	content: "";
+	width: .9em;
+	height: .9em;
+	background-color: hsl(85, 0%, 50%);
+	border-radius: 1em;
+	margin-right: .25em;
+	transition: 200ms ease-in-out;
+}
+
+/* -------------------------------------- */
+
+
+tr.table-row:hover {
+	/*border: 3px solid #86C232;*/
+	border-radius: 0;
+	background-color: #474B4F;
+	box-sizing: border-box;
+}
+
+table, tr, td{
+	border: 1px solid #6B6E70;
+	border-collapse: collapse;
+}
+
+td{
+	padding: 5px;
+}

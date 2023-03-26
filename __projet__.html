@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Mon projet</title>
+		<meta http-equiv="content-type" content="text/html" charset="utf-8" lang="fr"/>
+		<link rel="stylesheet" href="__style__.css">
+	</head>
+	<body>
+		<center>
+			<div>  <!--This div is there to stop the sticky elements-->
+				<h1>Calculateur de moyenne au bac</h1>
+				<div class="container">
+					<div class="Box" id="Première">
+						<h2>Moyennes de première</h2>
+					</div>
+					<div class="Box" id="Terminale">
+						<h2>Moyennes de terminale</h2>
+					</div>
+				</div>
+				<br>
+				<div class="Box">
+					<h2>Options choisies :</h2>
+					<input type="checkbox"  id="Latin" onchange="enable('Latin')"> <label for="Latin">Latin</label>
+					<br>
+					<input type="checkbox"  id="Grec" onchange="enable('Grec')"> <label for="Grec">Grec</label>
+					<br>
+					<input type="checkbox"  id="Premiere_option" onchange="enable('Premiere_option')"> <label for="Premiere_option">Option numéro 1</label>
+					<br>
+					<input type="checkbox"  id="Seconde_option" onchange="enable('Seconde_option')"> <label for="Seconde_option">Option numéro 2</label>
+					<br>
+				</div>
+				<br>
+				<div id="resultBox"><h2>Veuillez entrer toutes vos moyennes et notes</h2></div>
+			</div>
+			<h1> Détail des calculs </h1>
+			<table>
+				<tr>
+					<td><p>Matière</p></td>
+					<td><p>Coefficient</p></td>
+					<td><p>Année concernée</p></td>
+					<td><p>Valeur entrée</p></td>
+					<td><p>Points</p></td>
+				</tr>
+			</table>
+		</center>
+		<script src="__script__.js"></script>
+	</body>
+</html>
