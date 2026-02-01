@@ -74,10 +74,6 @@ label {		/* Noms des matières */
 	height: 3em;
 }
 
-.note * {
-	background-color: #222629;
-}
-
 .note input {
 	width: 100%;
 	align-self: baseline;
@@ -87,6 +83,7 @@ label {		/* Noms des matières */
 	box-sizing: border-box;  /* Pour que la boite ne dépasse pas sur ses voisines */
 	outline: none;
 	color: #fff;
+	background-color: #222629;
 }
 
 .note span {
@@ -244,3 +241,4 @@ table, tr, td{
 td{
 	padding: 5px;
 }
+
